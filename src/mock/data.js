@@ -44,7 +44,7 @@ export const projectsData = [
     title: 'Night Call - Intern developer',
     info: 'Night Call is a noire narrative game taking place in Paris.',
     info2:
-      'I worked on this game as an intern programmer between my 2nd and 3rd year of Bachelor Game Design Degree. I helped developed features of the game and participated in design discussions, in a small indie team.',
+      'I worked on this game as an intern programmer between my 2nd and 3rd year of Bachelor Game Design Degree. I helped developing features of the game and participated in design discussions, in a small indie team.',
     url: 'https://nightcall-game.com',
     repo: '', // if no repo, the button will not show up
   },
