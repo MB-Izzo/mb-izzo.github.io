@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="generator" content="gh:importantimport/urara" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" crossorigin="use-credentials" href="/manifest.webmanifest" />
+    <link rel="alternate" type="application/feed+json" href="/feed.json" />
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta http-equiv="content-security-policy" content="style-src 'self' 'unsafe-inline' https://giscus.app">
+		<link href="../_app/immutable/assets/_layout.50e2f37a.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.62022472.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.0f961b9d.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.c3c2cf2d.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.462ffd87.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.58c19e64.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/_layout.svelte.3bfb011c.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/posts.dcef96ef.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/icon.8855bf8a.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/_layout.ts.cccaddcc.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_layout.e59680bc.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/nvim-godot-solution-page.md.27289b49.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/post_layout.30836e21.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/footer.3c6ab5cd.js"><title>Setting up Godot with Neovim on Windows | Izzo</title><!-- HEAD_svelte-1592q3p_START --><!-- HEAD_svelte-1592q3p_END --><!-- HEAD_svelte-1kxdj3d_START --><link rel="shortcut icon" href="https://urara-demo.netlify.app/favicon.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="https://urara-demo.netlify.app/assets/any@180.png" sizes="180x180" type="image/png"><link rel="icon" href="https://urara-demo.netlify.app/assets/any@192.png" sizes="192x192" type="image/png"><!-- HEAD_svelte-1kxdj3d_END --><!-- HEAD_svelte-1g590ms_START --><meta name="theme-color"><!-- HEAD_svelte-1g590ms_END --><!-- HEAD_svelte-abrfj_START --><meta name="author" content="Izzo"><link rel="canonical" href="https://urara-demo.netlify.app/nvim-godot-solution">
+    
+    <meta name="keywords" content="Tutorial">
+    <!-- HEAD_svelte-abrfj_END --><!-- HEAD_svelte-1y1uq0g_START --><meta property="og:site_name" content="Izzo"><meta property="og:locale" content="en-US"><meta property="og:type" content="article">
+    <meta property="og:title" content="Setting up Godot with Neovim on Windows">
+    
+    <meta property="og:image" content="https://urara-demo.netlify.app/assets/maskable@512.png">
+      <meta name="twitter:card" content="summary">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="og:url" content="https://urara-demo.netlify.app/nvim-godot-solution">
+    <meta property="article:author" content="Izzo">
+    <meta property="article:published_time" content="2023-01-02T00:00:00.000Z">
+    <meta property="article:modified_time" content="2023-01-02T00:00:00.000Z"><!-- HEAD_svelte-1y1uq0g_END -->
+  </head>
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <div style="display: contents">
+
+
+
+
+
+
+
+
+
+
+<header id="header" class="fixed z-50 w-screen transition-all duration-500 ease-in-out border-b-2 border-transparent max-h-[4.125rem] false"><div class="navbar"><div class="navbar-start">
+
+<div class="dropdown lg:hidden"><label for="navbar-dropdown" tabindex="0" class="btn btn-square btn-ghost"><span class="i-heroicons-outline-menu-alt-1"></span></label>
+  <ul id="navbar-dropdown" tabindex="0" class="menu menu-compact dropdown-content bg-base-100 text-base-content shadow-lg rounded-box min-w-max max-w-52 p-2"><li><a href="/about">About</a>
+        </li></ul></div>
+<div class="swap order-last hidden lg:inline-grid"><button class="swap-on btn btn-ghost text-base font-normal normal-case transition-all duration-200 hidden"></button>
+  <ul class="swap-off menu menu-horizontal p-0"><li><a class="!rounded-btn" href="/about">About</a>
+        </li></ul></div>
+        <a href="/" class="btn btn-ghost normal-case text-lg">Izzo</a></div>
+      <div class="navbar-end">
+        <div id="change-theme" class="dropdown dropdown-end">
+          
+          <div tabindex="0" class="btn btn-square btn-ghost"><span class="i-heroicons-outline-color-swatch"></span></div>
+          
+          
+          <ul tabindex="0" class="flex flex-nowrap shadow-2xl menu dropdown-content bg-base-100 text-base-content rounded-box w-52 p-2 gap-2 overflow-y-auto max-h-[21.5rem]"><button data-theme="cmyk" class="btn btn-ghost w-full hover:bg-primary group rounded-lg flex bg-base-100 p-2 transition-all"><p class="flex-1 text-left text-base-content group-hover:text-primary-content transition-color">🖨 Light</p>
+                <div class="grid grid-cols-4 gap-0.5 m-auto"><div class="bg-primary w-1 h-4 rounded-btn"></div><div class="bg-secondary w-1 h-4 rounded-btn"></div><div class="bg-accent w-1 h-4 rounded-btn"></div><div class="bg-neutral w-1 h-4 rounded-btn"></div></div>
+              </button><button data-theme="dracula" class="btn btn-ghost w-full hover:bg-primary group rounded-lg flex bg-base-100 p-2 transition-all"><p class="flex-1 text-left text-base-content group-hover:text-primary-content transition-color">🧛 Dark</p>
+                <div class="grid grid-cols-4 gap-0.5 m-auto"><div class="bg-primary w-1 h-4 rounded-btn"></div><div class="bg-secondary w-1 h-4 rounded-btn"></div><div class="bg-accent w-1 h-4 rounded-btn"></div><div class="bg-neutral w-1 h-4 rounded-btn"></div></div>
+              </button></ul></div></div></div></header>
+
+<button id="totop" aria-label="scroll to top" class="fixed grid group btn btn-circle btn-lg border-none backdrop-blur bottom-6 right-6 z-50 duration-500 ease-in-out btn-ghost bg-base-100/30 md:bg-base-200/30 translate-y-24"><div class="radial-progress text-accent transition-all duration-500 ease-in-out group-hover:text-accent-focus col-start-1 row-start-1" style="--size:4rem; --thickness: 0.25rem; --value:undefined;"></div>
+  <div class="border-4 border-base-content/10 group-hover:border-transparent col-start-1 row-start-1 rounded-full w-full h-full p-4 grid duration-500 ease-in-out"><span class="i-heroicons-solid-chevron-up !w-6 !h-6"></span></div></button>
+
+<div class="bg-base-100 md:bg-base-200 min-h-screen pt-16 md:pb-8 lg:pb-16">
+
+
+
+<div class="flex flex-col flex-nowrap justify-center xl:flex-row xl:flex-wrap"><div class="flex-1 w-full order-first ease-out transform mx-auto xl:mr-0 xl:ml-0"></div>
+  <div class="flex-1 w-full xl:order-last ease-out transform mx-auto xl:ml-0 xl:mr-0"></div>
+  <div class="flex-none w-full max-w-screen-md mx-auto xl:mx-0"><article itemscope itemtype="https://schema.org/BlogPosting" itemprop="blogPost" class="h-entry card bg-base-100 rounded-none md:rounded-box md:shadow-xl overflow-hidden z-10 md:mb-8 lg:mb-16">
+  
+  
+  <div class="card-body gap-0 "><div class="flex flex-col gap-2">
+      <div class="flex font-semibold gap-1.5"><a rel="author" class="opacity-75 hover:opacity-100 hover:text-primary duration-500 ease-in-out p-author h-card" href="https://urara-demo.netlify.app">Izzo</a>
+  <span class="opacity-50">/</span>
+  <a href="/nvim-godot-solution" class="u-url u-uid swap group/time"><time class="group-hover/time:opacity-0 font-semibold opacity-75 duration-500 ease-in-out mr-auto dt-published" datetime="2023-01-02T00:00:00.000Z" itemprop="datePublished">Monday, Jan 2, 23</time>
+    <time class="opacity-0 group-hover/time:opacity-100 font-semibold text-primary duration-500 ease-in-out mr-auto dt-updated" datetime="2023-01-02T00:00:00.000Z" itemprop="dateModified">Monday, Jan 2, 23</time></a></div>
+      <h1 itemprop="name headline" class="card-title text-3xl mb-8 p-name">Setting up Godot with Neovim on Windows</h1>
+      </div>
+    <main itemprop="articleBody" class="urara-prose prose e-content"><p>Setting up neovim with <strong>Godot</strong> is not that hard. Probably very easy on linux,
+but there are a few things to know to make it work on windows. Actually,
+there’s <em>only</em> one thing to know but it was hard to find.</p>
+<h2 id="my-current-lsp-setup-with-lsp-zero"><a href="#my-current-lsp-setup-with-lsp-zero">My current LSP Setup with LSP Zero</a></h2>
+<p>I have no idea how it would work with another setup than mine so let me tell you
+about how my LSP is set up. I use
+<a href="https://github.com/VonHeikemen/lsp-zero.nvim" rel="nofollow noopener noreferrer external" target="_blank">lsp-zero</a>, and if you don’t use
+it yet, <em>you should</em>. It makes setting up LSP a breeze and still configurable.</p>
+<h2 id="configure-godot-external-editor"><a href="#configure-godot-external-editor">Configure Godot external editor</a></h2>
+<ol><li>In godot, go to <code>Editor &gt; Editor Settings &gt; Text Editor &gt; External </code></li>
+<li>In Exac path, set your path to <code>nvim.exe</code> (probably in Program Files)</li>
+<li>In exec flags, put <code>--server 127.0.0.1:55432 --remote-send &quot;&lt;C-\&gt;&lt;C-N&gt;:n {file}&lt;CR&gt;:call cursor({line},{col})&lt;CR&gt;&quot;</code></li></ol>
+<p><strong>You can customize the remote command sent to nvim</strong>, to target a line and column.
+Like a did here with <em>call cursor</em>.
+The docs for the remote feature of neovim are available
+<a href="https://neovim.io/doc/user/remote.html" rel="nofollow noopener noreferrer external" target="_blank">here</a>.</p>
+<p>This should be it for godot.</p>
+<h2 id="important-override-lsp-settings-for-gdscript-to-use-netcat"><a href="#important-override-lsp-settings-for-gdscript-to-use-netcat">IMPORTANT: Override LSP settings for gdscript to use netcat</a></h2>
+<p>For Linux, connecting to the lsp work with sockets, but <strong>it does not work
+on windows</strong>.</p>
+<p><strong>You need to override the cmd setting to use netcat instead</strong> (<a href="https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/gdscript.lua" rel="nofollow noopener noreferrer external" target="_blank">which is also the cmd
+for 0.8 nvim according to the source file</a>).</p>
+<ul><li>Download <strong>netcat</strong> <a href="https://nmap.org/ncat/" rel="nofollow noopener noreferrer external" target="_blank">from their website</a></li>
+<li>Add <code>ncat.exe</code> to your Path (<code>C:\Program Files (x86)\Nmap</code> by default)</li>
+<li>Add the following to wherever you set up your lsp in your nvim config:</li></ul>
+<!-- HTML_TAG_START --><pre class="shiki material-default" style="background-color: #263238; color: #EEFFFF" lua="true"><div class="language-id">lua</div><div class='code-container'><code><div class='line'><span style="color: #546E7A">-- file: lsp.lua</span></div><div class='line'><span style="color: #546E7A">-- lsp is require('lsp-zero')</span></div><div class='line'><span style="color: #546E7A">-- put this before calling lsp.setup()</span></div><div class='line'><span style="color: #EEFFFF">lsp.</span><span style="color: #82AAFF">configure</span><span style="color: #EEFFFF">(</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gdscript</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, &#123;</span></div><div class='line'><span style="color: #EEFFFF">    force_setup </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">true</span><span style="color: #EEFFFF">, </span><span style="color: #546E7A">-- because the LSP is global. Read more on lsp-zero docs about this.</span></div><div class='line'><span style="color: #EEFFFF">    single_file_support </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">false</span><span style="color: #EEFFFF">,</span></div><div class='line'><span style="color: #EEFFFF">    cmd </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> &#123;</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">ncat</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">127.0.0.1</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">6008</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">&#125;, </span><span style="color: #546E7A">-- the important trick for Windows!</span></div><div class='line'><span style="color: #EEFFFF">    root_dir </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">require</span><span style="color: #EEFFFF">(</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">lspconfig.util</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">).</span><span style="color: #82AAFF">root_pattern</span><span style="color: #EEFFFF">(</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">project.godot</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">.git</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">),</span></div><div class='line'><span style="color: #EEFFFF">    filetypes </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> &#123;</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gd</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gdscript</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gdscript3</span><span style="color: #89DDFF">' </span><span style="color: #EEFFFF">&#125;</span></div><div class='line'><span style="color: #EEFFFF">&#125;)</span></div></code></div></pre><!-- HTML_TAG_END -->
+<h2 id="launch-nvim-with-listen"><a href="#launch-nvim-with-listen">Launch nvim with –listen</a></h2>
+<p>Nvim comes with a remote feature. Before, you had to use something called (nvr)
+but it is not needed anymore.</p>
+<ul><li>Navigate to your godot project folder</li>
+<li>Run nvim from your terminal or whatever GUI you prefer with
+<code>nvim --listen 127.0.0.1:55432 .</code></li></ul>
+<p>Then, when you click on a script in Godot, it should open it in your nvim buffer.</p>
+<p>Enjoy making games with Neovim and Godot!</p></main>
+    <div class="divider mt-4 mb-0"></div>
+      <div><a href="/?tags=Tutorial" class="btn btn-sm btn-ghost normal-case mt-2 mr-2 p-category">#Tutorial
+          </a></div></div>
+  
+    </article>
+    <footer id="footer" class="footer footer-center bg-base-300 text-base-content shadow-inner p-8 md:rounded-box sticky bottom-0 z-0 md:static "><div class="prose"><p><a href="/atom.xml" rel="noopener noreferrer external" target="_blank">Feed</a>
+          <span class="mr-1">·</span><a href="/sitemap.xml" rel="noopener noreferrer external" target="_blank">Sitemap</a>
+          
+        <br>
+      Copyright © 2023
+      Izzo
+      <br>
+      Powered by
+      <a rel="noopener noreferrer external" target="_blank" class="tooltip tooltip-secondary hover:text-secondary" data-tip="🌸 [δ] - Based on MDsveX & SvelteKit 🌸" href="https://github.com/importantimport/urara">Urara
+      </a>
+      </p></div></footer></div></div></div>
+
+
+			<script type="application/json" data-sveltekit-fetched data-url="/posts.json">{"status":200,"statusText":"","headers":{},"body":"[{\"title\":\"Fixing astro.build/Vite hot reload crash ENOENT file not found\",\"created\":\"2023-04-09T00:00:00.000Z\",\"updated\":\"2023-04-09T00:00:00.000Z\",\"tags\":[\"Tutorial\"],\"flags\":[],\"slug\":\"/nvim-vite-hot-reload/+page.md\",\"path\":\"/nvim-vite-hot-reload\",\"toc\":[{\"depth\":2,\"title\":\"Vim creates a temporary 4913 file.\",\"slug\":\"vim-creates-a-temporary-4913-file\"},{\"depth\":2,\"title\":\"The fix\",\"slug\":\"the-fix\"}],\"type\":\"article\",\"html\":\"\"},{\"title\":\"Setting up Godot with Neovim on Windows\",\"created\":\"2023-01-02T00:00:00.000Z\",\"updated\":\"2023-01-02T00:00:00.000Z\",\"tags\":[\"Tutorial\"],\"flags\":[],\"slug\":\"/nvim-godot-solution/+page.md\",\"path\":\"/nvim-godot-solution\",\"toc\":[{\"depth\":2,\"title\":\"My current LSP Setup with LSP Zero\",\"slug\":\"my-current-lsp-setup-with-lsp-zero\"},{\"depth\":2,\"title\":\"Configure Godot external editor\",\"slug\":\"configure-godot-external-editor\"},{\"depth\":2,\"title\":\"IMPORTANT: Override LSP settings for gdscript to use netcat\",\"slug\":\"important-override-lsp-settings-for-gdscript-to-use-netcat\"},{\"depth\":2,\"title\":\"Launch nvim with –listen\",\"slug\":\"launch-nvim-with-listen\"}],\"type\":\"article\",\"html\":\"\"},{\"title\":\"My 2022 retrospective\",\"created\":\"2022-12-31T00:00:00.000Z\",\"updated\":\"2022-12-31T00:00:00.000Z\",\"tags\":[\"Misc\"],\"flags\":[],\"slug\":\"/my-2022-retrospective/+page.md\",\"path\":\"/my-2022-retrospective\",\"toc\":[{\"depth\":2,\"title\":\"Became better at my job\",\"slug\":\"became-better-at-my-job\"},{\"depth\":2,\"title\":\"Learned web development\",\"slug\":\"learned-web-development\"},{\"depth\":3,\"title\":\"Front-end\",\"slug\":\"front-end\"},{\"depth\":3,\"title\":\"Back-end\",\"slug\":\"back-end\"},{\"depth\":2,\"title\":\"Figma and UI/UX Design\",\"slug\":\"figma-and-uiux-design\"},{\"depth\":2,\"title\":\"Switched to Dvorak layout and bought a split keyboard.\",\"slug\":\"switched-to-dvorak-layout-and-bought-a-split-keyboard\"},{\"depth\":2,\"title\":\"Bought a vertical mouse.\",\"slug\":\"bought-a-vertical-mouse\"},{\"depth\":2,\"title\":\"Neovim and Linux workflow\",\"slug\":\"neovim-and-linux-workflow\"},{\"depth\":2,\"title\":\"Wrap-up\",\"slug\":\"wrap-up\"}],\"type\":\"article\",\"html\":\"\"},{\"title\":\"About me\",\"created\":\"2022-12-30T00:00:00.000Z\",\"updated\":\"2022-12-30T00:00:00.000Z\",\"tags\":[\"Misc\"],\"flags\":[],\"slug\":\"/about/+page.md\",\"path\":\"/about\",\"toc\":[{\"depth\":2,\"title\":\"Skills\",\"slug\":\"skills\"},{\"depth\":2,\"title\":\"Tech and languages I work with\",\"slug\":\"tech-and-languages-i-work-with\"}],\"type\":\"article\",\"html\":\"\"}]"}</script>
+			<script>
+				{
+					__sveltekit_jr6ihr = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.62022472.js"),
+						import("../_app/immutable/entry/app.58c19e64.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>
