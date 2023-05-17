@@ -59,7 +59,7 @@ u can preview the built app with `pnpm preview`.
 
 ### Documentation
 
-For full documentation, visit [urara-docs.netlify.app](https://urara-docs.netlify.app).
+For full documentation, visit [urara-docs.netlify.app](https://urara-docs.netlify.app)
 
 ### Give this project a star
 
