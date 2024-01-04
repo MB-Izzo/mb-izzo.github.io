@@ -21,21 +21,21 @@
 		<link rel="modulepreload" href="../_app/immutable/chunks/icon.9d8d92b4.js">
 		<link rel="modulepreload" href="../_app/immutable/entry/_layout.ts.cccaddcc.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/_layout.e59680bc.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/nvim-godot-solution-page.md.781d9841.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/choosing-a-game-engine-page.md.adae464d.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/post_layout.5a8d2e95.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/footer.f80e6d8a.js"><title>Setting up Godot with Neovim on Windows | Izzo</title><!-- HEAD_svelte-1592q3p_START --><!-- HEAD_svelte-1592q3p_END --><!-- HEAD_svelte-1kxdj3d_START --><link rel="shortcut icon" href="https://mb-izzo.github.io/favicon.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="https://mb-izzo.github.io/assets/any@180.png" sizes="180x180" type="image/png"><link rel="icon" href="https://mb-izzo.github.io/assets/any@192.png" sizes="192x192" type="image/png"><!-- HEAD_svelte-1kxdj3d_END --><!-- HEAD_svelte-1g590ms_START --><meta name="theme-color"><!-- HEAD_svelte-1g590ms_END --><!-- HEAD_svelte-abrfj_START --><meta name="author" content="Izzo"><link rel="canonical" href="https://mb-izzo.github.io/nvim-godot-solution">
+		<link rel="modulepreload" href="../_app/immutable/chunks/footer.f80e6d8a.js"><title>Choosing a game engine | Izzo</title><!-- HEAD_svelte-1592q3p_START --><!-- HEAD_svelte-1592q3p_END --><!-- HEAD_svelte-1kxdj3d_START --><link rel="shortcut icon" href="https://mb-izzo.github.io/favicon.png" sizes="48x48" type="image/png"><link rel="apple-touch-icon" href="https://mb-izzo.github.io/assets/any@180.png" sizes="180x180" type="image/png"><link rel="icon" href="https://mb-izzo.github.io/assets/any@192.png" sizes="192x192" type="image/png"><!-- HEAD_svelte-1kxdj3d_END --><!-- HEAD_svelte-1g590ms_START --><meta name="theme-color"><!-- HEAD_svelte-1g590ms_END --><!-- HEAD_svelte-abrfj_START --><meta name="author" content="Izzo"><link rel="canonical" href="https://mb-izzo.github.io/choosing-a-game-engine">
     
-    <meta name="keywords" content="Tutorial">
+    <meta name="keywords" content="Gamedev">
     <!-- HEAD_svelte-abrfj_END --><!-- HEAD_svelte-1y1uq0g_START --><meta property="og:site_name" content="Izzo"><meta property="og:locale" content="en-US"><meta property="og:type" content="article">
-    <meta property="og:title" content="Setting up Godot with Neovim on Windows">
+    <meta property="og:title" content="Choosing a game engine">
     
     <meta property="og:image" content="https://mb-izzo.github.io/assets/maskable@512.png">
       <meta name="twitter:card" content="summary">
-    <meta property="article:tag" content="Tutorial">
-    <meta property="og:url" content="https://mb-izzo.github.io/nvim-godot-solution">
+    <meta property="article:tag" content="Gamedev">
+    <meta property="og:url" content="https://mb-izzo.github.io/choosing-a-game-engine">
     <meta property="article:author" content="Izzo">
-    <meta property="article:published_time" content="2023-01-02T00:00:00.000Z">
-    <meta property="article:modified_time" content="2023-01-02T00:00:00.000Z"><!-- HEAD_svelte-1y1uq0g_END -->
+    <meta property="article:published_time" content="2024-01-04T00:00:00.000Z">
+    <meta property="article:modified_time" content="2024-01-04T00:00:00.000Z"><!-- HEAD_svelte-1y1uq0g_END -->
   </head>
   <body itemscope itemtype="https://schema.org/WebPage">
     <div style="display: contents">
@@ -85,46 +85,57 @@
   <div class="card-body gap-0 "><div class="flex flex-col gap-2">
       <div class="flex font-semibold gap-1.5"><a rel="author" class="opacity-75 hover:opacity-100 hover:text-primary duration-500 ease-in-out p-author h-card" href="https://mb-izzo.github.io">Izzo</a>
   <span class="opacity-50">/</span>
-  <a href="/nvim-godot-solution" class="u-url u-uid swap group/time"><time class="group-hover/time:opacity-0 font-semibold opacity-75 duration-500 ease-in-out mr-auto dt-published" datetime="2023-01-02T00:00:00.000Z" itemprop="datePublished">Monday, Jan 2, 23</time>
-    <time class="opacity-0 group-hover/time:opacity-100 font-semibold text-primary duration-500 ease-in-out mr-auto dt-updated" datetime="2023-01-02T00:00:00.000Z" itemprop="dateModified">Monday, Jan 2, 23</time></a></div>
-      <h1 itemprop="name headline" class="card-title text-3xl mb-8 p-name">Setting up Godot with Neovim on Windows</h1>
+  <a href="/choosing-a-game-engine" class="u-url u-uid swap group/time"><time class="group-hover/time:opacity-0 font-semibold opacity-75 duration-500 ease-in-out mr-auto dt-published" datetime="2024-01-04T00:00:00.000Z" itemprop="datePublished">Thursday, Jan 4, 24</time>
+    <time class="opacity-0 group-hover/time:opacity-100 font-semibold text-primary duration-500 ease-in-out mr-auto dt-updated" datetime="2024-01-04T00:00:00.000Z" itemprop="dateModified">Thursday, Jan 4, 24</time></a></div>
+      <h1 itemprop="name headline" class="card-title text-3xl mb-8 p-name">Choosing a game engine</h1>
       </div>
-    <main itemprop="articleBody" class="urara-prose prose e-content"><p>Setting up neovim with <strong>Godot</strong> is not that hard. Probably very easy on linux,
-but there are a few things to know to make it work on windows. Actually,
-there’s <em>only</em> one thing to know but it was hard to find.</p>
-<h2 id="my-current-lsp-setup-with-lsp-zero"><a href="#my-current-lsp-setup-with-lsp-zero">My current LSP Setup with LSP Zero</a></h2>
-<p>I have no idea how it would work with another setup than mine so let me tell you
-about how my LSP is set up. I use
-<a href="https://github.com/VonHeikemen/lsp-zero.nvim" rel="nofollow noopener noreferrer external" target="_blank">lsp-zero</a>, and if you don’t use
-it yet, <em>you should</em>. It makes setting up LSP a breeze and still configurable.</p>
-<h2 id="configure-godot-external-editor"><a href="#configure-godot-external-editor">Configure Godot external editor</a></h2>
-<ol><li>In godot, go to <code>Editor &gt; Editor Settings &gt; Text Editor &gt; External </code></li>
-<li>In Exac path, set your path to <code>nvim.exe</code> (probably in Program Files)</li>
-<li>In exec flags, put <code>--server 127.0.0.1:55432 --remote-send &quot;&lt;C-\&gt;&lt;C-N&gt;:n {file}&lt;CR&gt;:call cursor({line},{col})&lt;CR&gt;&quot;</code></li></ol>
-<p><strong>You can customize the remote command sent to nvim</strong>, to target a line and column.
-Like a did here with <em>call cursor</em>.
-The docs for the remote feature of neovim are available
-<a href="https://neovim.io/doc/user/remote.html" rel="nofollow noopener noreferrer external" target="_blank">here</a>.</p>
-<p>This should be it for godot.</p>
-<h2 id="important-override-lsp-settings-for-gdscript-to-use-netcat"><a href="#important-override-lsp-settings-for-gdscript-to-use-netcat">IMPORTANT: Override LSP settings for gdscript to use netcat</a></h2>
-<p>For Linux, connecting to the lsp work with sockets, but <strong>it does not work
-on windows</strong>.</p>
-<p><strong>You need to override the cmd setting to use netcat instead</strong> (<a href="https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/gdscript.lua" rel="nofollow noopener noreferrer external" target="_blank">which is also the cmd
-for 0.8 nvim according to the source file</a>).</p>
-<ul><li>Download <strong>netcat</strong> <a href="https://nmap.org/ncat/" rel="nofollow noopener noreferrer external" target="_blank">from their website</a></li>
-<li>Add <code>ncat.exe</code> to your Path (<code>C:\Program Files (x86)\Nmap</code> by default)</li>
-<li>Add the following to wherever you set up your lsp in your nvim config:</li></ul>
-<!-- HTML_TAG_START --><pre class="shiki material-default" style="background-color: #263238; color: #EEFFFF" lua="true"><div class="language-id">lua</div><div class='code-container'><code><div class='line'><span style="color: #546E7A">-- file: lsp.lua</span></div><div class='line'><span style="color: #546E7A">-- lsp is require('lsp-zero')</span></div><div class='line'><span style="color: #546E7A">-- put this before calling lsp.setup()</span></div><div class='line'><span style="color: #EEFFFF">lsp.</span><span style="color: #82AAFF">configure</span><span style="color: #EEFFFF">(</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gdscript</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, &#123;</span></div><div class='line'><span style="color: #EEFFFF">    force_setup </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">true</span><span style="color: #EEFFFF">, </span><span style="color: #546E7A">-- because the LSP is global. Read more on lsp-zero docs about this.</span></div><div class='line'><span style="color: #EEFFFF">    single_file_support </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">false</span><span style="color: #EEFFFF">,</span></div><div class='line'><span style="color: #EEFFFF">    cmd </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> &#123;</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">ncat</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">127.0.0.1</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">6008</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">&#125;, </span><span style="color: #546E7A">-- the important trick for Windows!</span></div><div class='line'><span style="color: #EEFFFF">    root_dir </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">require</span><span style="color: #EEFFFF">(</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">lspconfig.util</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">).</span><span style="color: #82AAFF">root_pattern</span><span style="color: #EEFFFF">(</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">project.godot</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">.git</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">),</span></div><div class='line'><span style="color: #EEFFFF">    filetypes </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> &#123;</span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gd</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gdscript</span><span style="color: #89DDFF">'</span><span style="color: #EEFFFF">, </span><span style="color: #89DDFF">'</span><span style="color: #C3E88D">gdscript3</span><span style="color: #89DDFF">' </span><span style="color: #EEFFFF">&#125;</span></div><div class='line'><span style="color: #EEFFFF">&#125;)</span></div></code></div></pre><!-- HTML_TAG_END -->
-<h2 id="launch-nvim-with-listen"><a href="#launch-nvim-with-listen">Launch nvim with –listen</a></h2>
-<p>Nvim comes with a remote feature. Before, you had to use something called (nvr)
-but it is not needed anymore.</p>
-<ul><li>Navigate to your godot project folder</li>
-<li>Run nvim from your terminal or whatever GUI you prefer with
-<code>nvim --listen 127.0.0.1:55432 .</code></li></ul>
-<p>Then, when you click on a script in Godot, it should open it in your nvim buffer.</p>
-<p>Enjoy making games with Neovim and Godot!</p></main>
+    <main itemprop="articleBody" class="urara-prose prose e-content"><h1 id="about-choosing-a-game-engine"><a href="#about-choosing-a-game-engine">About choosing a game engine</a></h1>
+<p>The past few months have been a ride for gamedev. Unity announcing crazy stuff about fees, Godot becoming more known to the world, Unreal 5 looking amazing… <strong>Leaving a
+ton of hobbyist wondering what is the best choice, if a “best” engine even exists.</strong></p>
+<p>Will it be a good choice for long term? Short term? Can I trust the people behind it? Will I
+like the workflow? Will it be able to handle my game? Is there enough plugins available? That’s a lot of questions and they seem legit, it means you care about your tools which is great.</p>
+<p><strong>Let me share my thoughts about choosing a game engine!</strong></p>
+<h2 id="dont-get-attached-to-software"><a href="#dont-get-attached-to-software">Don’t get attached to software</a></h2>
+<p><strong>Software is forever changing</strong>. It comes and go. Sometimes companies do stupid
+things and disappear as fast as they appeared. It can be scary to choose a game engine because of this. However, I have good news for you. <strong>Your skills as a programmer and gamedev are in your control</strong>, not in the control of crazy executives. Hone your
+skills, work on your fundamentals. It will not solve every problems but it will help you through the tough times.</p>
+<p>I see too many young gamedevs focusing too much on third party assets. I know, assets are cool and can save a lot of time, but relying on them can hold you back sometimes. <strong>I’m not advocating on reinventing the wheel, but there’s a balance to find.</strong> Using assets is a risk, making your own is a risk too, but it will bring a vast amount of knowledge to you, thus making you a far more confident developer. The day you will need to jump out of a sinking ship and switch engine, it will only be a matter of time to make your tool work with a new engine: <strong>you’re not relying on some random person on the internet to create the assets for you.</strong></p>
+<h2 id="try-different-engines-and-workflows"><a href="#try-different-engines-and-workflows">Try different engines and workflows</a></h2>
+<p>At the end of the day, <strong>everything comes down to your personal taste.</strong> Some will tell you they love working with Unity, some prefer Unreal, and some are crazy enough to build their own engine. <strong>None of these choices are stupid.</strong> Some people prefer the code driven style of using a framework like FNA (the new XNA) or cocos2d. Some people
+like to be able to use blueprints with unreal (even though they come with their own limitations). Some people like Unity because it’s so versatile. </p>
+<p><strong>Every engine has its strengths and weaknesses, do some extensive research</strong>, and try different things. After all, you can try almost every engine for free. Use it for a game jam or a little pet project!</p>
+<h2 id="choosing-the-right-tool-for-the-right-job"><a href="#choosing-the-right-tool-for-the-right-job">Choosing the right tool for the right job</a></h2>
+<p><strong>Many things will drive your engine choice</strong>: personal taste, the kind of game you’re making,
+the skills in your team, among other things.</p>
+<p>You’re making a 2d platformer and your main programmer has some experience with game maker?
+Then go for it, if it matches your project. <strong>Don’t get stuck with “the big names”,</strong>
+at the end of the day, many successful games made with unity could have been made with game maker,
+<strong>it’s about your skills as a game developer, not the engine.</strong> Using the right engine
+for you will make your life easier, sure, but that’s about <em>it</em> (even if “it” can actually be “a lot”).</p>
+<p>Also, <strong>there’s a good chance any engine is “powerful” enough to make the game you want</strong>
+(or are able to do). The day you will be able to make a game so special that engine
+optimization is an issue, you will know the right answers to the question “can X
+engine handle my game?”</p>
+<p><strong>Choose the right tool for you, even if it’s not “hype”.</strong></p>
+<h2 id="stick-to-it-no-matter-what"><a href="#stick-to-it-no-matter-what">Stick to it no matter what</a></h2>
+<p><strong>The golden rule: never upgrade your engine version during development.</strong>
+That’s also why you should choose your engine carefully, and maybe sometimes you
+will want to use an earlier but more stable version of an engine.</p>
+<p>However, I think <strong>it’s ok to change engine between projects.</strong> You are not married
+to your engine, it’s <em>just</em> a tool. If you have a clear
+production pipeline and good programming/gamedev fundamentals, <strong>you will be able
+to adapt to a new engine that may be a better fit for your game</strong>. Or you might
+have no choice because a company decides to price their engine way too expensive
+at some point in time. </p>
+<p>If you’re at ease with engines in general, making the jump
+to another engine will make you sad but after some time you will be proficient too,
+and faster than with the precedent engine.</p>
+<h2 id="conclusion"><a href="#conclusion">Conclusion</a></h2>
+<p>I’ve had these thoughts in my head since the Unity drama, so I had to write them down,
+and I hope my view on game development will help you. </p>
+<p><strong>TLDR</strong>: Game engines are tools. Treat them as such. Focus on your skills.</p></main>
     <div class="divider mt-4 mb-0"></div>
-      <div><a href="/?tags=Tutorial" class="btn btn-sm btn-ghost normal-case mt-2 mr-2 p-category">#Tutorial
+      <div><a href="/?tags=Gamedev" class="btn btn-sm btn-ghost normal-case mt-2 mr-2 p-category">#Gamedev
           </a></div></div>
   
     </article>
@@ -158,7 +169,7 @@ but it is not needed anymore.</p>
 						import("../_app/immutable/entry/app.19603ae4.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
-							node_ids: [0, 7],
+							node_ids: [0, 4],
 							data,
 							form: null,
 							error: null
