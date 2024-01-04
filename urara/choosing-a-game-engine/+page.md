@@ -6,8 +6,6 @@ tags:
   - 'Gamedev'
 ---
 
-# About choosing a game engine
-
 The past few months have been a ride for gamedev. Unity announcing crazy stuff about fees, Godot becoming more known to the world, Unreal 5 looking amazing... **Leaving a
 ton of hobbyist wondering what is the best choice, if a "best" engine even exists.**
 
