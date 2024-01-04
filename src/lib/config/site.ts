@@ -8,7 +8,7 @@ export const site: SiteConfig = {
   lang: 'en-US',
   description: 'I am a programmer expressing stuff.',
   author: {
-    avatar: '/assets/maskable@512.png',
+    avatar: '/assets/maskable@192.png',
     name: 'Izzo',
     status: '',
     bio: 'Dumb thoughts of a programmer.'
