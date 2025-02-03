@@ -82,5 +82,5 @@
       "vite>rollup": "^3.10.0"
     }
   },
-  "packageManager": "pnpm@10.0.0"
+  "packageManager": "pnpm@8.14.1"
 }
