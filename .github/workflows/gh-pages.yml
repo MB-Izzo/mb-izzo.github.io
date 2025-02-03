@@ -1,16 +1,26 @@
 name: Deploy to GitHub Pages
 
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
 jobs:
   deploy:
+    uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
+    permissions:
+      contents: write
+    with:
+      publish_dir: build
+    strategy:
+      matrix:
+        node-version: [16, 18] # Adjust based on what worked before
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 16  # Try the version that worked before
+          node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -19,10 +29,6 @@ jobs:
       - name: Rebuild sharp
         run: npm rebuild sharp
 
-      - name: Build project
-        run: pnpm run build
+      - name: Install System Dependencies (for sharp)
+        run: sudo apt-get update && sudo apt-get install -y libvips-dev
 
-      - name: Deploy to GitHub Pages
-        uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
-        with:
-          publish_dir: build
