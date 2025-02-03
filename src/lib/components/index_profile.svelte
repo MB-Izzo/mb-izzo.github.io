@@ -23,6 +23,7 @@
     <h2 class="text-2xl font-bold mt-0 mb-2 p-name">{site.author.name}</h2>
     <p class="opacity-75 p-note">{@html site.author.bio}</p>
 <!--    <p class="opacity-75 p-note">Follow me on <a href="https://bsky.app/profile/i2zo.bsky.social" target="_blank" class="opacity-75 hover:opacity-100 hover:text-primary duration-500 ease-in-out p-author h-card text-primary">bluesky</a></p>!-->
+    <p class="opacity-75 p-note">Reach me via <a href="mailto:mathieubouchonnet@gmail.com" target="_blank" class="opacity-75 hover:opacity-100 hover:text-primary duration-500 ease-in-out p-author h-card text-primary">email</a></p>
     {#if site.author.metadata}
       <div class="flex gap-1 flex-wrap justify-center">
         {#each site.author.metadata as { text, icon, link, rel }}
