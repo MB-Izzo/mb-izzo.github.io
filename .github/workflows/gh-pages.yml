@@ -1,14 +1,28 @@
 name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches: main
-  workflow_dispatch:
-
 jobs:
   deploy:
-    uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
-    permissions:
-      contents: write
-    with:
-      publish_dir: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16  # Try the version that worked before
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Rebuild sharp
+        run: npm rebuild sharp
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Deploy to GitHub Pages
+        uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
+        with:
+          publish_dir: build
