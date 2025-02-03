@@ -6,8 +6,8 @@ tags:
   - 'Misc'
 ---
 
-Hi, I'm I2zo, welcome on my blog. I am a young programmer,
-currently working at Ubisoft.
+Hi, **I'm I2zo**, welcome on my blog. I am a programmer,
+**currently working at Ubisoft.**
 My job title is **QA Engineer**.  
 The responsabilities for this kind of role
 may vary from a company to another, but to be brief, I **mostly develop tools**
@@ -31,10 +31,10 @@ I received a **game design degree**, but I **taught myself programming** since a
 
 - C#
 - C++
-- Rust
 - React / React Native
-- Python
-- Lua
 - TypeScript
 - Neovim
+- Rust
+- Python
+- Lua
 
