@@ -6,7 +6,7 @@
   "repository": "importantimport/urara",
   "homepage": "https://github.com/importantimport/urara",
   "bugs": "https://github.com/importantimport/urara/issues",
-  "author": "藍+85CD",
+  "author": "藍+85CD.",
   "scripts": {
     "clean": "node urara.js clean",
     "tsc": "tsc -p tsconfig.node.json",
