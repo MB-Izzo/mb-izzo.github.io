@@ -8,12 +8,8 @@ on:
 jobs:
   deploy:
     steps:
-      - name: rebuild sharp
-        run: npm rebuild sharp
-
-      - name: main
-        uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
-        permissions:
-          contents: write
-        with:
-          publish_dir: build
+      uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
+      permissions:
+        contents: write
+      with:
+        publish_dir: build
